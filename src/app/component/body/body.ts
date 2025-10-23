@@ -27,6 +27,7 @@ import { ModelFormDemo1 } from "../model-form-demo1/model-form-demo1";
 import { AssignmentForms } from "../assignment-forms/assignment-forms";
 import { DynamicForm } from "../dynamic-form/dynamic-form";
 import { RouterOutlet } from '@angular/router';
+import { UserSpring } from "../user-spring/user-spring";
 
 
 @Component({
@@ -37,7 +38,8 @@ import { RouterOutlet } from '@angular/router';
     ModelFormDemo1,
     AssignmentForms,
     DynamicForm,
-    RouterOutlet
+    RouterOutlet,
+    UserSpring
 ],
   templateUrl: './body.html',
   styleUrl: './body.css'

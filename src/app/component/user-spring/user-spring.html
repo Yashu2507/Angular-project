@@ -1,1 +1,27 @@
-<p>user-spring works!</p>
+<div class="container mt-4">
+  <h2>User List from Spring Boot API</h2>
+
+  <table class="table table-bordered table-striped mt-3" *ngIf="userData.length > 0; else noData">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userData">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p class="text-danger">No users found. Please check the API connection.</p>
+  </ng-template>
+</div>
+
