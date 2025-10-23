@@ -1,0 +1,67 @@
+<h3 class="text-center">Lets Learn Data Binding</h3>
+
+<div class="border border-3 rounded-3 p-2 m-2">
+  <div>Username is: {{username}}</div>
+  <div>Username is: <span [innerText]="username"></span></div>
+
+  <div>
+    <img src="{{image_url}}" alt="" width="300" height="300">
+    <img [src]="image_url" alt="" width="300" height="300">
+    <img bind-src="image_url" alt="" width="300" height="300">
+  </div>
+
+  <div class="mt-2">
+   1 way: <input type="text" value ={{username}} class="mx-2">
+   1 way: <input type="text" [value] ="username" class="mx-2">
+    1 way: <input type="text" bind-value ="username" class="mx-2">
+    2 way: <input type="text" [(ngModel)] =username class="mx-2">
+
+  </div>
+
+  <div class="mt-2">
+    <button class="bt btn-success" disabled="{{flag}}">Click Me</button>
+
+    <button class="bt btn-success max-2" bind-disabled="flag">Click Me</button>
+
+    <button class="bt btn-success" [disabled]="flag">Click Me</button>
+    <span class="mx-3">{{flag}}</span>
+    <button class="bt btn-primary mx-2" (click)="toggleflag()">Toggle Working</button>
+    <button class="bt btn-primary mx-2" onclick="toggleflag()" >Toggle Flag</button>//Use should not use the plain JS onclick
+
+    <!-- Attribute Binding -->
+     <input type="text" id="box1" placeholder="" value="Yash">
+
+    <table class="table table-bordered" width="30%">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Item</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td [attr.rowspan]="rowSpanValue">Electronics</td>
+      <td>Laptop</td>
+      <td>$1200</td>
+    </tr>
+    <tr>
+      <td>Smartphone</td>
+      <td>$800</td>
+    </tr>
+    <tr>
+      <td>Books</td>
+      <td>Novel</td>
+      <td>$25</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  <!-- <div class="border border-3 rounded-3 p-2 m-2"> 
+    <h3>Adding two numbers using Template Reference Variable</h3>
+    <input type="number" #num1=10>
+  </div> -->
+
+</div>

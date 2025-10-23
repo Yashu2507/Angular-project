@@ -1,0 +1,20 @@
+<h2 class="text-center">This is Home Component</h2>
+
+<!-- for sometime 500ms place holder content will be shown -->
+
+
+
+<!-- @defer{
+  <ng-container *ngIf="largeComponent | async as cmp">
+    <ng-container *ngComponentOutlet="cmp.LargeComponent"></ng-container>
+  </ng-container>
+} @placeholder(minimum 500ms) {
+  <p>Placeholder content</p>
+} -->
+
+@defer {
+  <ng-container *ngComponentOutlet="largeComponent"></ng-container>
+} @placeholder (minimum 500ms) {
+  <p>Placeholder content</p>
+}
+

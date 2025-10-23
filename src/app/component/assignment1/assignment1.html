@@ -1,0 +1,96 @@
+<!-- Assignments: 
+1. Have a paragraph & a toggle button, on click of the button control the visibility(Show/Hide) of the paragraph
+2. Create a text-area with maxLength=100, as the user keeps typing display updated Remaining characters.
+3. Create dropdown with state names, when user changes dropdown value, print the selected dropdown value in a div
+4. have 2 inputBoxes, and a dropdown(+,-,*,/) and perform arithmetic operations
+5. create a input box, toggle the type of that input box to (text/password)
+6. create a counter example with 3 controls(increment,decrement,reset)
+7. Have a toggle button and control Dark/Light theme of a page.
+8. Temperature Converter (celcius to fahrenheit) -->
+
+<div>
+  <p class="Question">1. Have a paragraph & a toggle button, on click of the button control the visibility(Show/Hide) of the paragraph</p>
+
+  <p [class.hide] = "flag" >
+    I am the one going to hide if you press the hide button. Thank you.
+  </p>
+ <button class="btn-primary" (click)="togglepara()">{{flag? "Show" :"Hide"}}</button>
+
+ <!-- <button class="btn-primary" (click)="togglepara()" >  -->
+  <!-- <span [class.hide] = "flag">I am the one going to hide if you press the hide button. Thank you.</span>   -->
+ <!-- </button> -->
+
+
+ <p class="Question" >2. Create a text-area with maxLength=100, as the user keeps typing display updated Remaining characters.</p>
+ <textarea maxlength="100" id=""  [(ngModel)]="textArea"></textarea>
+ <p>Charecters left: {{maxLength-textArea.length}}</p>
+
+ <p class="Question">3. Create dropdown with state names, when user changes dropdown value, print the selected dropdown value in a div"></p>
+
+ <select name="States" id="" [(ngModel)]="selectedState">
+  <option value="telangana">Telangana</option>
+  <option value="andhra">Andhra Pradesh</option>
+  <option value="bihar">Bihar</option>
+  <option value="jharkhand">Jharkhand</option>
+  <option value="orissa">Orissa</option>
+  <option value="maharastra">Maharastra</option>
+  <option value="karnataka">Karnataka</option>
+ </select>
+ <div>{{selectedState}}</div>
+
+ <p class="Question">4. have 2 inputBoxes, and a dropdown(+,-,*,/) and perform arithmetic operations</p>
+ <input type="number" [(ngModel)]=num1>
+ <input type="number" [(ngModel)]=num2 >
+ <select name="" id="" [(ngModel)]="operator" >
+  <option value="addition">+</option>
+  <option value="subtraction">-</option>
+  <option value="multiplication">*</option>
+  <option value="division">/</option>
+ </select>
+ <button (click)="calculate()">Calculate</button>
+ 
+ <div>{{result}}</div>
+
+ <p class="Question"> create a input box, toggle the type of that input box to (text/password)</p>
+
+ <input [type]="flag?'Password':'Text'">
+ <button (click)="togglepara()">{{flag?'Text':'Password'}}</button>
+
+ <p class="Question">create a counter example with 3 controls(increment,decrement,reset)</p>
+ <button class="btn" (click)="decreament()">-</button>
+ <input class="input rounded-3 mx-2" type="text" [(ngModel)]="num">
+ <button class="btn" (click)="increament()">+</button>
+ <button class="btn" (click)="reset()">Reset</button>
+
+ <!-- toggleMode() {
+    this.flag = !this.flag;
+    if (this.flag) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+} -->
+
+
+ <p class="Question">
+  7. Have a toggle button and control Dark/Light theme of a page.
+</p>
+
+<button (click)="toggleTheme()">
+  {{ isDark ? "Switch to Light" : "Switch to Dark" }}
+</button>
+
+<div [class.dark-theme]="isDark" [class.light-theme]="!isDark">
+  <p>This is a sample content area. Watch me change colors!</p>
+</div>
+
+<p class="Question">8. Temperature Converter (celcius to fahrenheit)</p>
+<input type="text" [(ngModel)]="Celcius">
+<button (click)="convert()">Convert</button>
+<div>Celcius: {{Celcius}}: Fahrenheit: {{fahrenheit}} </div>
+
+<input #emailInput type="email" placeholder="Enter email">
+<button (click)="submitEmail(emailInput.value)">Submit</button>
+
+
+</div>

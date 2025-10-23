@@ -1,0 +1,20 @@
+.inactive {
+  color: gray;
+  font-style: italic;
+}
+
+.manager {
+  font-weight: bold;
+  color: blue;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 12px; 
+  color: white;
+  font-weight: bold;
+}
+.applyStyle {
+  font-weight: bold;
+  color: blue;
+}

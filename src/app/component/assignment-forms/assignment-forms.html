@@ -1,0 +1,93 @@
+<h3 class="text-center">Assignment Forms</h3>
+<div class="border border-3 rounded-3 col-sm-4 offset-sm-4">
+  <form  #exForm="ngForm" (ngSubmit)="submitMyForm(exForm)">
+    <!-- firstName inputBox-->
+    <p>First Name:
+      <input name="firstName" #firstName="ngModel" [(ngModel)]="register.firstName" required minlength="5">
+
+      @if (firstName.dirty && firstName.hasError('required')) {
+      <span class="text-danger">firstName is required field</span>
+      }
+      @if (firstName.dirty && firstName.hasError('minlength')) {
+      <span class="text-danger">Minimum length should be 5</span>
+      }
+    </p>
+
+    <!-- lastName inputBox-->
+    <p>Last Name
+      <input name="lastName" #lastName="ngModel" [(ngModel)]="register.lastName">
+    </p>
+
+    <!-- email -->
+    <p>Email
+      <input type="email" name="email" #email="ngModel" [(ngModel)]="register.email" required email>
+      @if (email.dirty && email.hasError('email')) {
+      <span class="text-danger">Invalid Email</span>
+      }
+    </p>
+
+    <!-- password -->
+    <p>Password
+      <input type="password" id="inputPassword6" class="form-control"  type="password" name="password" #password="ngModel" [(ngModel)]="register.password" required minlength="8">
+      @if (firstName.dirty && firstName.hasError('minlength')) {
+      <span class="text-danger">Password minimum length should be 8</span>
+      }
+
+    </p>
+
+
+    <!-- gender Radio -->
+    <p>Gender:</p>
+
+    <p>
+      <input type="radio" name="gender" value="male" #male="ngModel" [(ngModel)]="register.gender" required> Male
+    </p>
+
+    <p>
+      <input type="radio" name="gender" value="female" #female="ngModel" [(ngModel)]="register.gender" required> Female
+    </p>
+
+    <p>
+      <input type="radio" name="gender" value="other" #other="ngModel" [(ngModel)]="register.gender" required> Other
+    </p>
+
+    <p>Description:</p>
+    <textarea name="description" #description="ngModel" [(ngModel)]="register.description"> </textarea>
+
+
+    <div class="dropdown mb-3">
+      <p>How did you hear about us?</p>
+    <select name="source" #source="ngModel" [(ngModel)]="register.source">
+      <option value="">-- Select an option --</option>
+      <option value="google">Google</option>
+      <option value="facebook">Facebook</option>
+      <option value="twitter">Twitter</option>
+    </select>
+
+    </div>
+    
+
+
+
+
+    <!-- Agree with terms and Conditions checkBox -->
+    <div class="form-check mb-3">
+      <p>
+        <input class="form-check-label" type="checkbox" name="terms" #terms="ngModel" [(ngModel)]="register.terms" required>Agree with terms and Conditions
+      </p>
+      <p>
+        <input class="form-check-label"  type="checkbox" name="updates" #updates="ngModel" [(ngModel)]="register.updates">You will recieve email updates
+      </p>
+    </div>
+
+
+
+    <input type="submit" [disabled]="exForm.invalid" value="Submit" class="mx-1 btn btn-primary">
+    <input type="reset" value="Clear" class="mx-1 btn btn-danger">
+  </form>
+
+
+  <pre>
+  {{exForm.value | json}}
+</pre>
+</div>

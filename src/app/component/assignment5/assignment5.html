@@ -1,0 +1,96 @@
+<!-- Assignment
+==========
+1. Create a custom pipe(ordinal) which takes a number as input and returns in ordinal format
+   input : 21,22,23,24  output : 21st, 22nd , 23rd, 24th
+2. create a custom pipe(Roman) which takes a number as input and returns its equivalent roman value
+   input :  4    8     9   
+   output : IV  VIII   IX 
+3. create a custom pipe called 'age' which takes a date as input and returns the age in years.
+   input : 04-06-2020
+   output : 5 years old
+4. declare an array of employee objects. display them in a table.
+   create a custom pipe 'Salutation' that will add 'mr. / miss.' before the employee name.
+5. declare an array of employee objects. display them in a table. 
+   add a search-box above the table. create a custom-pipe to filter/search employees data. -->
+
+<h3 class="text-center">Assignment5</h3>
+<div class="border border-3 rounded-3 p-2 m-2">
+  <div>Ordinal Number</div>
+  <div><input type="number" [(ngModel)]='num'></div>
+  <div>ordinal Value is: {{num | ordinal}}</div>
+</div>
+
+<div class="border border-3 rounded-3 p-2 m-2">
+  <div>Roman Number</div>
+  <div><input type="number" [(ngModel)]='num'></div>
+  <div>Roman Value is: {{num | roman}}</div>
+</div>
+<div class="border border-3 rounded-3 p-2 m-2">
+  <div>Age</div>
+  <div><input type="date" [(ngModel)]='birthDate'></div> 
+  <!-- It gives the Date in 2025-09-29 -->
+  <div>{{birthDate | age}}</div>
+  </div>
+
+  <div>
+   <table class="table table-bordered table-striped">
+      <thead>
+         <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Salary</th>
+            <th>Department</th>
+            
+         </tr>
+      </thead>
+      <tbody>
+       @for(emp of employees; track emp.id){
+         <tr>
+            <td>{{emp.id}}</td>
+            <td>{{emp.name|salutation:emp.gender}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.department}}</td>
+            
+         </tr>
+       }
+      </tbody>
+   </table>
+  </div>
+
+
+<div>
+   <input type="text" placeholder="Search" [(ngModel)]="search">
+   <table class="table table-bordered table-striped">
+      <thead>
+         <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Salary</th>
+            <th>Department</th>
+            
+         </tr>
+      </thead>
+      <tbody>
+       @for(emp of employees | searchemployee:search ; track emp.id){
+         <tr>
+            <td>{{emp.id}}</td>
+            <td>{{emp.name|salutation:emp.gender}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.department}}</td>
+            
+         </tr>
+       }
+      </tbody>
+   </table>
+  </div>
+
+
+

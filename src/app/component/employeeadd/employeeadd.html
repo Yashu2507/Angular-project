@@ -1,0 +1,9 @@
+ <div class="card p-3 shadow-sm">
+        <h5 class="mb-3">Add Employee</h5>
+        <input type="number" class="form-control mb-2" placeholder="Id" [(ngModel)]="addId">
+        <input type="text" class="form-control mb-2" placeholder="Name" [(ngModel)]="addName">
+        <input type="text" class="form-control mb-2" placeholder="Role" [(ngModel)]="addRole">
+        <input type="number" class="form-control mb-2" placeholder="Salary" [(ngModel)]="addSalary">
+        <input type="text" class="form-control mb-2" placeholder="Status" [(ngModel)]="addStatus">
+        <button class="btn btn-success w-100" (click)="addEmployee()">Add</button>
+ </div>

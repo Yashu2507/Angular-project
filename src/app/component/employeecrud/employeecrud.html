@@ -1,0 +1,10 @@
+<div class="container">
+ <!-- Table column -->
+    <div class="col-md-8">
+      <app-employeetable [allemployees]="employees" (deleteevent)="deletedEmp($event)"></app-employeetable>
+<!-- addEmployee -->
+    <div class="col-md-4">
+     <app-employeeadd (addEmpEvent)="addEmployee($event)"></app-employeeadd>
+    </div>
+  </div>
+</div>

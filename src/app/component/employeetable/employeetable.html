@@ -1,0 +1,33 @@
+ <div class="row">
+    <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Status</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (emp of allemployees; track $index) {
+          <tr>
+          
+            <th scope="row">{{emp.id}}</th>
+            <td>{{emp.name}}</td>
+            <td>{{emp.role}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.status}}</td>
+          
+            <td>
+              <fa-icon [icon]="faTrash" class="text-danger cursor-pointer" (click)="deleteEmp(emp)"></fa-icon>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+
+ </div>
+ 
+ 

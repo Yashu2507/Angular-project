@@ -1,0 +1,14 @@
+{
+  "employee": [
+    {
+      "id": "102",
+      "name": "Sachin Tendulkar",
+      "salary": "10000"
+    },
+    {
+      "id": 104,
+      "name": "Virat Kohli",
+      "salary": "18000"
+    }
+  ]
+}

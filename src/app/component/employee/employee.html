@@ -1,0 +1,35 @@
+<div class="mb-3">
+  <label for="filter" class="form-label">Select Employees:</label>
+  <select  id="filter" [(ngModel)]="selectedFilter" (change)="filterChange()" class="form-select">
+    <option value="all">All Employees</option>
+    <option value="male">Male Employees</option>
+    <option value="female">Female Employees</option>
+  </select>
+</div>
+
+<div>
+  <table class="table table-bordered table-stripped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Salary</th>
+        <th>Status</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (emp of employees; track $index) {
+        <tr>
+          <td>{{emp.id}}</td>
+          <td>{{emp.name}}</td>
+          <td>{{emp.role}}</td>
+          <td>{{emp.salary}}</td>
+          <td>{{emp.status}}</td>
+          <td>{{emp.gender}}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

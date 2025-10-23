@@ -1,0 +1,20 @@
+.hide{
+  display: none
+}
+.Question{
+  color: red;
+}
+
+.dark-theme {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.light-theme {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin-top: 10px;
+}

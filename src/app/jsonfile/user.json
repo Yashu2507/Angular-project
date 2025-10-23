@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "firstName": "Virat",
+      "lastName": "Kohli",
+      "email": "virat@gmail.com",
+      "gender": "male",
+      "salary": 5200,
+      "id": "101"
+    },
+    {
+      "id": "102",
+      "firstName": "Sachin22",
+      "lastName": "Tendulkar",
+      "email": "sachin@gmail.org",
+      "gender": "male",
+      "salary": 5000
+    },
+    {
+      "id": "22",
+      "firstName": "Yashwanth",
+      "lastName": "Nalamasa",
+      "email": "nalamasa@gmail.org",
+      "gender": "male",
+      "salary": "2500"
+    }
+  ]
+}

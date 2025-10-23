@@ -1,0 +1,50 @@
+<h3 class="text-center">Lets LearnTemplate Driven Form</h3>
+
+<div class="border border-3 rounded-3 col-sm-4 offset-sm-4">
+  <form #myForm ="ngForm" (submit)="submitMyForm(myForm)">
+    <p>
+      First Name:
+      <input  name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName"  required minlength="5"/>
+      @if (firstName.dirty && firstName.hasError('required')) {
+        <span class="text-danger">firstName is required field</span>
+      }
+      @if (firstName.dirty && firstName.hasError('minlength')) {
+        <span class="text-danger">Minimum length should be 5</span>
+      }
+      
+      
+      
+    </p>
+    <p>
+      Last Name:
+      <input  name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" />
+    </p>
+    <p>
+      Email:
+      <input  name="email" [(ngModel)]="user.email" #email="ngModel" />
+    </p>
+    <div ngModelGroup="address">
+      <p>
+        City:
+        <input name="city" #city ngModel/>
+      </p>
+      <p>
+        State:
+        <input name="state" #state ngModel/>
+      </p>
+      <p>
+        Pincode:
+        <input name="pinCode" #pinCode ngModel/>
+      </p>
+    </div>
+    <input type="submit" [disabled]="myForm.invalid" value="Submit" class="mx-1 btn btn-primary">
+    <input type="reset" value="Clear" class="mx-1 btn btn-danger">
+  </form>
+  
+<pre>
+  {{myForm.value | json}}
+</pre>
+</div>
+
+
+

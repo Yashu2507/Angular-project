@@ -1,0 +1,148 @@
+<!-- Directive Assignment:
+====================
+1. Declare an array of users, display users in card & table format. 
+ add a button/switch to toggle between table view and card view.
+ https://jsonplaceholder.typicode.com/users
+
+ -->
+
+<!-- {
+"id": 1,
+"name": "Leanne Graham",
+"username": "Bret",
+"email": "Sincere@april.biz",
+"address": {
+"street": "Kulas Light",
+"suite": "Apt. 556",
+"city": "Gwenborough",
+"zipcode": "92998-3874",
+"geo": {
+"lat": "-37.3159",
+"lng": "81.1496"
+}
+},
+"phone": "1-770-736-8031 x56442",
+"website": "hildegard.org",
+"company": {
+"name": "Romaguera-Crona",
+"catchPhrase": "Multi-layered client-server neural-net",
+"bs": "harness real-time e-markets"
+} -->
+
+
+<div class="container">
+
+ 
+  @if (viewMode==='table') {
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>username</th>
+        <th>email</th>
+        <th>zipcode</th>
+        <th>phone</th>
+        <th>website</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (emp of empInfo; track $index) {
+      <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.username}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.address.zipcode}}</td>
+        <td>{{emp.phone}}</td>
+        <td>{{emp.website}}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
+  @if (viewMode === 'card') {
+  @for (emp of empInfo; track $index) {
+  <div class="card " style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Employee Id:{{emp.id}}</h5>
+      <h5 class="card-title">Employee Name:{{emp.name}}</h5>
+      <p class="card-text">Employee Username:{{emp.username}}</p>
+      <p class="card-text">Employee Email:{{emp.email}}</p>
+      <p class="card-text">employee Zipcode:{{emp.address.zipcode}}</p>
+      <p class="card-text">employee phone:{{emp.phone}}</p>
+      <p class="card-text">employee website:{{emp.website}}</p>
+    </div>
+  </div>
+  }
+  }
+ 
+  </div>
+
+  <div>
+      <button (click)="toggleView()">
+    Switch to {{ viewMode === 'table' ? 'Card' : 'Table' }} View
+  </button>
+  </div>
+
+
+
+
+  <!--
+employees = [
+  { id: 1, name: 'John', role: 'Manager', salary: 85000, status: 'Active' },
+  { id: 2, name: 'Alice', role: 'Developer', salary: 45000, status: 'Active' },
+  { id: 3, name: 'Bob', role: 'Tester', salary: 30000, status: 'Inactive' },
+  { id: 4, name: 'Eve', role: 'HR', salary: 40000, status: 'Active' }
+];
+2. Display Array of employees in a table
+   a. Display Salary in green  if salary > 50000, else Display Salary in red, using [ngStyle]
+   b. Apply a CSS class "inactive" to employees whose status is "Inactive" using [ngClass]
+   c. Add bold font and blue color only for employees whose role is "Manager" using [ngClass]
+   d. Apply a different row background color based on employee role:
+		Manager = lightyellow , Developer = lightblue , Tester = lightpink
+   e. Show salary in a badge style with dynamic color
+      Green if salary > 70,000 , Orange if between 40,000–70,000, Red if < 40,000 -->
+
+<div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>role</th>
+        <th>salary</th>
+        <th>status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (emp of employees; track $index) {
+      <tr >
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+
+
+
+        <!-- <td [ngClass]="{appStyle: emp.role === 'Manager'}" >{{emp.role}}</td> -->
+
+        <td [ngStyle]="{'background-color': getRowColor(emp.role)}">{{emp.role}}</td>
+
+
+        <!-- <td [style.color]="emp.salary > 50000 ? 'green' : 'red'">{{emp.salary}}</td> -->
+          <td class="badge" [ngStyle]="{'background-color': getSalaryBadgeColor(emp.salary)}">
+          {{ emp.salary }}
+      </td>
+
+
+        <td [ngClass]="{'inactive': emp.status === 'Inactive'}">{{emp.status}}</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+
+</div>
+
+
